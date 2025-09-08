@@ -2,27 +2,28 @@ import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 function Button({
   text,
-  size,
+  type,
   theme,
   onPress,
 }: {
   text: string;
-  size: string;
+  type?: string;
   theme: string;
   onPress: () => void;
 }) {
   const buttonStyles = [styles.button];
   const textStyles = [styles.text];
 
-  if (size === "double") {
-    buttonStyles.push(styles.buttonDouble);
-  }
-
-  if (theme === "secondary") {
-    buttonStyles.push(styles.buttonSecondary);
-    textStyles.push(styles.textSecondary);
-  } else if (theme === "accent") {
-    buttonStyles.push(styles.buttonAccent);
+  switch (type) {
+    case "secondary":
+      buttonStyles.push(styles.buttonSecondary);
+      textStyles.push(styles.textSecondary);
+      break;
+    case "accent":
+      buttonStyles.push(styles.buttonAccent);
+      break;
+    default:
+      break;
   }
 
   return (
@@ -51,12 +52,6 @@ const styles = StyleSheet.create({
   },
   textSecondary: {
     color: "#060606",
-  },
-  buttonDouble: {
-    width: screen.width / 2 - 10,
-    flex: 0,
-    alignItems: "flex-start",
-    paddingLeft: 40,
   },
   buttonSecondary: {
     backgroundColor: "#a6a6a6",
