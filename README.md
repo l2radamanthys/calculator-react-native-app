@@ -1,6 +1,8 @@
 # Calculator App
 
-Primeras pruebas con React Native y Expo construyendo una app simple.
+Primeras pruebas con React Native y Expo construyendo una simple calculadora.
+
+![Captua de pantalla](./screenshot.png)
 
 ## Get started
 
